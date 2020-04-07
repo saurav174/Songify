@@ -1,81 +1,57 @@
 package com.songify.entities;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
-
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class User extends BaseEntity {
 
-    @Id
-    @Column(name = "userid")
-    String Userid;
+    @Column(name = "user_id")
+    String userId;
 
-    @Column(name = "user_name",nullable = false)
-    String Name;
+    @Column(name = "name")
+    String name;
 
-    @Column(name="email",nullable = false)
-    String Email;
+    @Column(name = "password")
+    String password;
 
-    @Column(name="password",nullable = false)
-    String Password;
+    @Column(name = "e_mail")
+    String email;
 
-    @Column(name="phone_number",nullable = true)
-    String PhoneNumber;
-
-    @Column(name = "role",nullable = false)
-    String Role;
-
-    public String getUserid() {
-        return Userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        Userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
+        this.name = name;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
-    public String getPhoneNumber() {
-        return PhoneNumber;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
-
-    public String getRole() {
-        return Role;
-    }
-
-    public void setRole(String role) {
-        Role = role;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }
+

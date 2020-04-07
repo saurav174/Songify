@@ -6,9 +6,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 
 
-@ComponentScan(basePackages = {"com.songify"})
+@ComponentScan(basePackages = {"com.songify.*"})
 @SpringBootApplication
-public class SongifyApplication extends SpringBootServletInitializer{
+public class SongifyApplication{
 
     public static void main(String[] args) {
         SpringApplication.run(SongifyApplication.class, args);
