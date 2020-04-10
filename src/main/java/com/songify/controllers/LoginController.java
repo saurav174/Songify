@@ -1,6 +1,7 @@
 package com.songify.controllers;
 
 
+import com.songify.dto.CommonResponseDTO;
 import com.songify.dto.LoginResponseDTO;
 import com.songify.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,13 @@ public class LoginController {
     {
         LoginResponseDTO loginResponseDTO = loginService.getUserWithUserIDPassword(userName,password);
         return  loginResponseDTO;
+    }
+
+    @RequestMapping("/api/forget-password")
+    public CommonResponseDTO userForgetPassword(@ModelAttribute("email") String email)
+    {
+        CommonResponseDTO commonResponseDTO = loginService.sendOtpForEmail(email);
+        return  commonResponseDTO;
     }
 
 

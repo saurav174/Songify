@@ -1,8 +1,12 @@
 package com.songify.utils;
 
+import java.util.Random;
+import java.util.UUID;
+
 public class PasswordUtility {
 
     private static final int PASSWORD_LENGTH = 8;
+    private static  final String numbers= "0123456789";
 
     public static boolean isvalidPassword(String password) {
 
@@ -34,5 +38,24 @@ public class PasswordUtility {
         return (ch >= '0' && ch <= '9');
     }
 
+    public static char[] generateOTP(int len)
+    {
+        Random rndm_method = new Random();
+
+        char[] otp = new char[len];
+
+        for (int i = 0; i < len; i++)
+        {
+
+            otp[i] =
+                    numbers.charAt(rndm_method.nextInt(numbers.length()));
+        }
+        return otp;
+    }
+
+    public static String generateToken(String userID,String id)
+    {
+        return UUID.randomUUID().toString()+"|"+userID+"|"+id;
+    }
 
 }

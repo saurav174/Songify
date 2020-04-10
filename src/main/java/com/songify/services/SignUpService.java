@@ -51,6 +51,13 @@ public class SignUpService {
                 commonResponseDTO.setMsg(Constants.REGISTRATION_FAILED_EMAIL_INVALID);
                 return commonResponseDTO;
             }
+            int emailcount = userDao.countUserWithEMailId(email);
+            if(emailcount>=1)
+            {
+                commonResponseDTO.setSuccess(false);
+                commonResponseDTO.setMsg(Constants.REGISTRATION_FAILED_EMAIL_EXISTS);
+                return commonResponseDTO;
+            }
         }
         user.setEmail(email);
         userDao.save(user);
