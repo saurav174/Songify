@@ -1,4 +1,4 @@
-package com.songify.constants;
+package com.superHyperCars.constants;
 
 import org.springframework.stereotype.Component;
 
@@ -38,4 +38,5 @@ public class Constants {
     public static final String NOT_FOUND = "404";
     public static final String SOMETHING_WENT_WRONG = "501";
     public static final String BAD_REQUEST = "400";
+    public static final String REGISTRATION_FAILED_PASSWORD_MISMATCH = "password doesn't match";
 }

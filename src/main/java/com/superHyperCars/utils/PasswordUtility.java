@@ -1,4 +1,4 @@
-package com.songify.utils;
+package com.superHyperCars.utils;
 
 import java.util.Random;
 import java.util.UUID;
@@ -8,7 +8,7 @@ public class PasswordUtility {
     private static final int PASSWORD_LENGTH = 8;
     private static  final String numbers= "0123456789";
 
-    public static boolean isvalidPassword(String password) {
+    public static boolean isValidPassword(String password) {
 
         if (password.length() < PASSWORD_LENGTH) return false;
 

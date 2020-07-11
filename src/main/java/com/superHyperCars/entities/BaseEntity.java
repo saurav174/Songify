@@ -1,15 +1,7 @@
-package com.songify.entities;
+package com.superHyperCars.entities;
 
-
-import java.math.BigInteger;
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 
 @MappedSuperclass
 public class BaseEntity {
@@ -20,7 +12,7 @@ public class BaseEntity {
             name = "id"
     )
     @Id
-    private BigInteger id;
+    private Long id;
     @Column(
             name = "created_at"
     )
@@ -33,11 +25,11 @@ public class BaseEntity {
     public BaseEntity() {
     }
 
-    public BigInteger getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,7 +63,9 @@ public class BaseEntity {
         this.setUpdatedAt(new Date());
     }
 
+    @Override
     public String toString() {
-        return "BaseEntity [id=" + this.id + ", createdAt=" + this.createdAt + ", updatedAt=" + this.updatedAt + "]";
+        return super.toString();
     }
 }
+

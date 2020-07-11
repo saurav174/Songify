@@ -1,25 +1,14 @@
-package com.songify.dao;
+package com.superHyperCars.dao;
 
-import com.songify.entities.User;
-import org.springframework.data.jpa.repository.Query;
+import com.superHyperCars.entities.User;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
+import java.util.List;
 
+@Repository
+public interface UserDao extends CrudRepository<User,Long> {
 
-public interface UserDao extends CrudRepository<User, BigInteger> {
-
-
-    @Query("Select u from User u where userId=:userId and password=:Password")
-    User findByUserIDAAndPassword(String userId,String Password);
-
-    @Query("Select count(1) from User u where userId=:userId")
-    int countUserWithUserId(String userId);
-
-    @Query("Select count(1) from User u where email=:Email")
-    int countUserWithEMailId(String Email);
-
-    @Query("Select u from User u where email=:Email")
-    User findUserByEmail(String Email);
+    List<User> findByUserName(String userName);
 
 }

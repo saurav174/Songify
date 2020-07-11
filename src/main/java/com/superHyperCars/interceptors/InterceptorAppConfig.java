@@ -1,4 +1,4 @@
-package com.songify.interceptors;
+package com.superHyperCars.interceptors;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

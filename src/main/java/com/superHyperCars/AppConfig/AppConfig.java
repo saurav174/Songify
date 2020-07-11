@@ -1,4 +1,4 @@
-package com.songify.AppConfig;
+package com.superHyperCars.AppConfig;
 
 
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -35,7 +35,7 @@ public class AppConfig {
     private int idleConnectionTimeout;
 
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+    public RestTemplate restTemplate() {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(maxTotal);
         connectionManager.setDefaultMaxPerRoute(defaultMaxPerRoute);

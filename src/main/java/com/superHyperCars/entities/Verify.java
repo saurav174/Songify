@@ -1,33 +1,42 @@
-package com.songify.entities;
+package com.superHyperCars.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
-@Entity
-@Table(name = "verify")
-public class Verify extends BaseEntity{
+public class Verify extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "user_table_id")
-    private User user;
+    @ManyToMany
+    @JoinColumn(name = "app_user_id")
+    private Long appUserId;
 
-    @Column(name = "token")
-    private String token;
+    @Column(name = "client_id")
+    private String clientId;
 
-    public User getUser() {
-        return user;
+    @Column(name = "access_token")
+    private String accessToken;
+
+    public Long getAppUserId() {
+        return appUserId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAppUserId(Long appUserId) {
+        this.appUserId = appUserId;
     }
 
-    public String getToken() {
-        return token;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
+    public String getAccessToken() {
+        return accessToken;
+    }
 
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
 }

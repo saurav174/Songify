@@ -1,33 +1,29 @@
-package com.songify.entities;
+package com.superHyperCars.entities;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
-public class User extends BaseEntity {
+@Table(name = "User")
+public class User extends BaseEntity{
 
-    @Column(name = "user_id")
-    String userId;
+    @OneToOne
+    @JoinColumn(name="app_user_id")
+    private Long appUserId;
+
+    @Column(name = "user_name")
+    private String userName;
 
     @Column(name = "name")
-    String name;
+    private String name;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
-    String password;
+    private String password;
 
-    @Column(name = "e_mail")
-    String email;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    @Column(name = "status")
+    private String status;
 
     public String getName() {
         return name;
@@ -35,6 +31,22 @@ public class User extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getAppUserId() {
+        return appUserId;
+    }
+
+    public void setAppUserId(Long appUserId) {
+        this.appUserId = appUserId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -45,6 +57,14 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -53,5 +73,8 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
-
