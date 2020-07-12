@@ -1,35 +1,46 @@
 package com.superHyperCars.entities;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "verify")
 public class Verify extends BaseEntity {
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "app_user_id")
-    private Long appUserId;
+    private AppUser appUser;
 
-    @Column(name = "client_id")
-    private String clientId;
+    @Column(name = "device_id")
+    private String deviceId;
+
+    @Column(name = "device_type")
+    private String deviceType;
 
     @Column(name = "access_token")
     private String accessToken;
 
-    public Long getAppUserId() {
-        return appUserId;
+    public String getDeviceId() {
+        return deviceId;
     }
 
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
-    public String getClientId() {
-        return clientId;
+    public String getDeviceType() {
+        return deviceType;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public String getAccessToken() {

@@ -45,11 +45,10 @@
             <version>2.9.8</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
         <dependency>
-            <groupId>com.sendgrid</groupId>
-            <artifactId>sendgrid-java</artifactId>
-            <version>4.4.5</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
     </dependencies>

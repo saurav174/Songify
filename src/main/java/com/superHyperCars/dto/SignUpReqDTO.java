@@ -1,23 +1,19 @@
 package com.superHyperCars.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.superHyperCars.constants.Constants;
 import com.superHyperCars.utils.EmailUtility;
 import com.superHyperCars.utils.PasswordUtility;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class SignUpReqDTO {
-
-    private String userName;
+public class SignUpReqDTO extends UserDto {
 
     private String name;
-
-    private String password;
 
     private String email;
 

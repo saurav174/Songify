@@ -9,35 +9,28 @@ public class AppUser extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private Long userId;
+    private User user;
+
+    @Column(name = "user_name")
+    private String userName;
 
     @Column(name = "login_timestamp")
     private Date loginTimestamp;
 
-    @Column(name = "logout_timestamp")
-    private Date logoutTimestamp;
-
-
-    @Column(name = "device_id")
-    private String deviceId;
-
-    @Column(name = "device_type")
-    private String deviceType;
-
-    public String getDeviceId() {
-        return deviceId;
+    public User getUser() {
+        return user;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Date getLoginTimestamp() {
@@ -48,21 +41,6 @@ public class AppUser extends BaseEntity{
         this.loginTimestamp = loginTimestamp;
     }
 
-    public Date getLogoutTimestamp() {
-        return logoutTimestamp;
-    }
-
-    public void setLogoutTimestamp(Date logoutTimestamp) {
-        this.logoutTimestamp = logoutTimestamp;
-    }
-
-    public String getDeviceType() {
-        return deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
-    }
 
     @Override
     public String toString() {

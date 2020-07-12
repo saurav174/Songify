@@ -1,10 +1,7 @@
 package com.superHyperCars.controller;
 
-
-import com.superHyperCars.dto.RequestDTO;
-import com.superHyperCars.dto.ResponseDTO;
-import com.superHyperCars.dto.SignUpReqDTO;
-import com.superHyperCars.manager.SignUpManager;
+import com.superHyperCars.dto.*;
+import com.superHyperCars.manager.LoginManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +9,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @RequestMapping("/init")
-public class SignUpController {
+public class LoginController {
 
-    private Logger logger = LoggerFactory.getLogger(SignUpController.class);
+    private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
-    private SignUpManager signUpManager;
+    private LoginManager loginManager;
 
-    @RequestMapping("/sign_up")
-    public ResponseDTO signUp(@RequestBody RequestDTO<SignUpReqDTO> requestDTO) {
-        ResponseDTO responseDTO = SignUpReqDTO.isValid(requestDTO.getPayload());
+    public ResponseDTO loginUser(@RequestBody RequestDTO<UserDto> requestDTO) {
+        ResponseDTO responseDTO = LoginRespDTO.isValid(requestDTO.getPayload());
         if (responseDTO != null) {
             logger.info("following error occurred : {}", responseDTO.getMsg());
             return responseDTO;
         }
-        responseDTO = signUpManager.signUpProcess(requestDTO);
+        responseDTO = loginManager.loginProcess(requestDTO);
         return responseDTO;
     }
-
 
 }

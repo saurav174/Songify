@@ -8,7 +8,7 @@ public class User extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name="app_user_id")
-    private Long appUserId;
+    private AppUser appUser;
 
     @Column(name = "user_name")
     private String userName;
@@ -25,20 +25,20 @@ public class User extends BaseEntity{
     @Column(name = "status")
     private String status;
 
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getAppUserId() {
-        return appUserId;
-    }
-
-    public void setAppUserId(Long appUserId) {
-        this.appUserId = appUserId;
     }
 
     public String getUserName() {

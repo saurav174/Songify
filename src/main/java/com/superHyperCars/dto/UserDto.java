@@ -8,29 +8,24 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class RequestDTO<T> {
+public class UserDto {
+    protected String userName;
 
-    private MetaDTO metaDTO;
-    private T payload;
+    protected String password;
 
-    public MetaDTO getMetaDTO() {
-        return metaDTO;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setMetaDTO(MetaDTO metaDTO) {
-        this.metaDTO = metaDTO;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public T getPayload() {
-        return payload;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPayload(T payload) {
-        this.payload = payload;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

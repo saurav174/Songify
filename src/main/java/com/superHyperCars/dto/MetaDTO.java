@@ -1,9 +1,9 @@
 package com.superHyperCars.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -11,6 +11,8 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class MetaDTO {
 
     private String deviceId;
+
+    private String deviceType;
 
     private String lon;
 
@@ -48,6 +50,14 @@ public class MetaDTO {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
     }
 
     @Override
